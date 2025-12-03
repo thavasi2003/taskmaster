@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Employee Task Manager</title>
+
+    <!-- ✅ PWA Manifest -->
+    <link rel="manifest" href="Public/manifest.json" />
+
+    <!-- ✅ Theme color for Android status bar -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Register Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("Public/service-worker.js")
+            .then((reg) => console.log("Service Worker Registered", reg))
+            .catch((err) => console.log("Service Worker Failed", err));
+        });
+      }
+    </script>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
