@@ -1,12 +1,11 @@
 {
-  "name": "Employee Task Manager",
-  "short_name": "TaskManager",
+  "name": "TaskMaster",
+  "short_name": "TaskMaster",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0f172a",
   "theme_color": "#0f172a",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "/icons/icon-192.png",
