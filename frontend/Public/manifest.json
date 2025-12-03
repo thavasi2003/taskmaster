@@ -1,10 +1,10 @@
 {
-  "name": "My Web App",
-  "short_name": "MyApp",
-  "start_url": "/?source=twa",
+  "name": "Employee Task Manager",
+  "short_name": "TaskManager",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#0f172a",
   "orientation": "portrait",
   "icons": [

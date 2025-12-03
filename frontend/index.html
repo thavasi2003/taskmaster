@@ -7,22 +7,22 @@
     <title>Employee Task Manager</title>
 
     <!-- ✅ PWA Manifest -->
-    <link rel="manifest" href="Public/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- ✅ Theme color for Android status bar -->
     <meta name="theme-color" content="#0f172a" />
 
-    <!-- Tailwind -->
+    <!-- Tailwind (OK for now) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- ✅ Register Service Worker -->
+    <!-- ✅ Register Service Worker (ROOT PATH) -->
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("Public/service-worker.js")
-            .then((reg) => console.log("Service Worker Registered", reg))
-            .catch((err) => console.log("Service Worker Failed", err));
+            .register("/service-worker.js")
+            .then((reg) => console.log("✅ Service Worker Registered", reg))
+            .catch((err) => console.log("❌ Service Worker Failed", err));
         });
       }
     </script>
