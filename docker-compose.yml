@@ -7,8 +7,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: employee_db3
-      MYSQL_USER: root
-      MYSQL_PASSWORD: rootpassword
+
+      #  DO NOT USE root here
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: rootpassword
+
+      # ✅ Create a normal DB user so container won't crash
+      MYSQL_USER: taskuser
+      MYSQL_PASSWORD: taskpass
     ports:
       - "3309:3306"
     volumes:
