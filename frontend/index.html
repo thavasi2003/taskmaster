@@ -9,10 +9,10 @@
 
   <title>Employee Task Manager</title>
 
-  <!-- ✅ PWA Manifest (ROOT) -->
+  <!-- ✅ PWA Manifest -->
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- ✅ Theme color (Android) -->
+  <!-- ✅ Theme color -->
   <meta name="theme-color" content="#0f172a" />
 
   <!-- ✅ Apple PWA Support -->
@@ -21,7 +21,7 @@
   <meta name="apple-mobile-web-app-title" content="Task Manager" />
   <link rel="apple-touch-icon" href="/icons/icon-192.png" />
 
-  <!-- ✅ Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/icons/icon-192.png" />
 
   <!-- Tailwind CDN -->
@@ -42,10 +42,41 @@
       });
     }
   </script>
+
+  <!-- ✅ Install Prompt Handler -->
+  <script>
+    let deferredPrompt;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById("install-btn").style.display = "flex";
+    });
+
+    function installApp() {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+        document.getElementById("install-btn").style.display = "none";
+      });
+    }
+  </script>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
   <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- 🟦 Install Button -->
+  <button
+    id="install-btn"
+    onclick="installApp()"
+    style="display:none"
+    class="fixed bottom-5 right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg"
+  >
+    Install App
+  </button>
+
   <div id="root"></div>
 
   <!-- React / Vite entry -->
